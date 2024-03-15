@@ -8,7 +8,6 @@ body {
     height: fit-content;
     display: flex;
     flex-direction: column;
-    background-color: #dddddd;
     padding:0px;
     margin:0px;
     overflow-x: hidden;
@@ -42,6 +41,7 @@ body {
     margin-right: auto;
     padding-top: 50px;
     flex: 1;
+    background-color: #dddddd;
     height: fit-content;
  }
  
