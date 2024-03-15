@@ -1,0 +1,73 @@
+.body{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.flex-title{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: right;
+    color: #5ab7bf;
+}
+
+.title-poly{
+    display: block;
+    position: relative;
+    clip-path: polygon(100% 0%,
+                   100% 100%,
+					0% 100%,
+                    15% 0%);
+    background-color: white;
+    text-align: center;
+    width: 150px;
+    height: 40px;
+}
+
+.title-poly h2{
+    font-family: 'JetBrains Mono';
+    margin: 0px;
+    padding-left: 10%;
+    padding-top: 3%;
+}
+
+.calendar-box{
+    display: flex;
+    margin-top: 10px;
+    position: relative;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-big, .calendar-small{
+    display: flex;
+    border-radius: 15px;
+    background-color: white;
+    width: 70%;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.calendar-big iframe, .calendar-small iframe{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+@media only screen and (min-width: 800px){
+    .calendar-small{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .calendar-big{
+        display: none;
+    }
+}
