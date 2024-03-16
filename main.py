@@ -19,15 +19,15 @@ def user(name: str):
             upper = False
         if not i.islower():
             lower = False
-    
+
     if upper:
         ans = ans.lower()
     if lower:
         ans = ans.upper()
-    
+
     if onChar:
         ans = ans[0].upper()+ans.lower()[1:]
-    
+
     return "<h1><strong>Welcome, "+str(ans)+", to my CSCB20 website!</strong></h1>"
 
 if __name__ == "__main__":

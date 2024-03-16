@@ -125,6 +125,7 @@ font-family: "Roboto";
  .ham-butt {
    position: absolute;
    top: -30px;
+   padding-right: 10px;
    border: none;
    background-color: transparent;
    height: 20px;
@@ -176,8 +177,7 @@ font-family: "Roboto";
    height: fit-content;
    font-family: 'Roboto';
    width: 100vw;
-   border-radius: 5px;
-   padding-left: 8px;
+   padding: 5px;
    background-color: #000000;
    z-index: 500;
  }
@@ -187,6 +187,7 @@ font-family: "Roboto";
    flex-direction: column;
    align-items: center;
    justify-content: space-around;
+   padding-right: 10px;
  }
 
  .ham-item {

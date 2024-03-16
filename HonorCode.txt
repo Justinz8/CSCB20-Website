@@ -1,0 +1,4 @@
+We (Justin Zhang, Nisith DeSilva, Bill Jin) pledge that this program represents my own program code and that we have coded on my own. We received help from no one in designing and debugging my program. We have also read the plagiarism section in the course info sheet of CSC B20 and understand the consequences.
+Justin Zhang #1010262270
+Nisith DeSilva #1010476138
+Bill Jin #1010355081
