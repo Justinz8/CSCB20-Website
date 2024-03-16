@@ -1,1 +1,0 @@
-On the assignments page, a student user must be able to see the details of all public assignments, with unreleased assignments being greyed out.
