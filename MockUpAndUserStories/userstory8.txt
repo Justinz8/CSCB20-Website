@@ -1,0 +1,1 @@
+On the labs page, a student user must be able to see released tutorial work for each week as well as solutions if available.

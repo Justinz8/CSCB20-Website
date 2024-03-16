@@ -1,0 +1,1 @@
+On the calendar page, a student user must be able to browse an interactive calendar containing details about office hour and lecture dates/times.

@@ -1,0 +1,1 @@
+On the resources page, a student user must be able to navigate to the course Piazza board as well as MarkUs, view past assessments for practice, and see other useful resources (online tutorials, database browsers, …).

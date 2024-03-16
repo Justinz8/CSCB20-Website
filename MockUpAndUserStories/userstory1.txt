@@ -1,0 +1,1 @@
+On the home page, a student user must be able to a graphic showing the course code, course name, and term.

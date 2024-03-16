@@ -1,0 +1,1 @@
+When on a mobile device or on a small enough display window, the header must adapt into an expandable hamburger navigation bar.
