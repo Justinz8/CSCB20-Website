@@ -88,16 +88,16 @@ font-family: "Roboto";
     display: flex;
     justify-content:space-between;
     position: fixed;
-    width: calc(var(--header-width) - 10px);
-    padding: 5px;
+    width: 80vw;
+    padding-left: 10vw;
+    padding-right: 10vw;
     padding-top: 10px;
     padding-bottom: 10px;
-
     border-bottom: 2px solid black;
     overflow: hidden;
     background-color: #000000;
     z-index: 800;
-    left: var(--header-left);
+    left: 0px;
  }
 
  .head div{
