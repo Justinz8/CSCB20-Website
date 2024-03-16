@@ -13,26 +13,50 @@ body {
     overflow-x: hidden;
     transition-duration: 0s;
  }
- 
- .foot {
-  margin-top: 10px;
-    min-height:25px;
-    flex:0;
-    display: flex;
-    justify-content: space-between;
-    padding-left: 25%;
-    padding-right: 25%;
-    background-color: #cccccc;
-    align-items: center;
-    border-top: solid #191919 2px;
-    z-index: 1000000;
- }
- 
- .footer-item {
-    text-decoration: none;
-    color: #191919;
- }
- 
+
+ p {
+  color: #666666;
+}
+
+.foot p {
+font-family: "Roboto";
+}
+
+.foot {
+  margin-top: 25px;
+  margin-bottom: 50px;
+  min-height:150px;
+  flex:0;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 10px;
+
+  background-color: #f3f3f3ff;
+  align-items: center;
+  box-shadow: 0px 3px rgb(205, 205, 205);
+  z-index: 1000000;
+}
+
+#footer-logo {
+  font-family: "JetBrains Mono";
+  color: #666666;
+  padding: 0%;
+  margin: 0px;
+}
+
+.footer-item {
+  text-decoration: none;
+  font-family: "Roboto";
+  font-weight: normal;
+}
+
+.footer-item a {
+  color: #666666;
+  text-decoration: none;
+}
+
  .body {
     width: calc(var(--header-width) - 10%);
     padding-left: 5%;
@@ -44,7 +68,7 @@ body {
     background-color: #dddddd;
     height: fit-content;
  }
- 
+
 .header-nav {
    display: flex;
    justify-content:space-between;
@@ -67,7 +91,7 @@ body {
     padding: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
-    
+
     border-bottom: 2px solid black;
     overflow: hidden;
     background-color: #000000;
@@ -79,7 +103,7 @@ body {
  .head div{
    margin-top: 5px;
  }
- 
+
  .head-item {
   transition-duration: 0.2s;
    position: relative;
@@ -131,7 +155,7 @@ body {
    bottom: 6px;
    background-color: #E83F50;
  }
- 
+
  .hamburger, .hamburger::after, .hamburger::before {
    width: 23px;
    height: 2px;

@@ -25,7 +25,7 @@
     width: 33%;
 }
 
-.Title-text h1{
+.Title-text h1 {
     position: relative;
     font-family: "DM Mono", monospace;
     margin: 0px;
@@ -73,6 +73,7 @@
 
 .subsec-title h3{
     font-family: 'Fragment Mono';
+    font-weight: lighter;
 }
 
 .info-subsec{
@@ -82,7 +83,7 @@
     background-color: white;
     border-radius: 5px;
     margin-bottom: 5px;
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.062));
+    box-shadow: 0px 3px rgb(205, 205, 205);
 }
 
 .triangle-img{
@@ -117,13 +118,13 @@
 
 .subsec-content{
     font-family: 'Roboto';
-    font-weight: 100;
-    padding-left: 1%;
-    padding-right: 1%;
+    font-weight: 600;
+    padding: 15px;
     position: inherit;
     display: inline-block;
     margin-top: calc(var(--triangle-height) - 5px);
-    width: 98%;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
     height: fit-content;
     border-radius: 5px;
     background-color: white;
@@ -171,6 +172,8 @@
     display: block;
     background-color: white;
     width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 3px rgb(205, 205, 205);
 }
 
 .home-nav-but img{

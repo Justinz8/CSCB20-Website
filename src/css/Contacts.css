@@ -1,4 +1,3 @@
-
 :root{
     --img-height: 150px;
     --triangle-height:100px;
@@ -9,7 +8,7 @@
     margin-bottom: 10px;
     display: flex;
     justify-content: right;
-    color: #5ab7bf;
+    color: #666666;
 }
 
 .title-poly{
@@ -57,21 +56,27 @@
 }
 
 .info-cont{
+    font-family: 'Roboto';
+    font-weight: 500;
+    padding-top: 15px;
+    color: #666666;
     position: relative;
-    width: calc(100% - 160px);
+    width: calc(100% - 160px - 10px);
     margin-left: 75px;
-    padding-left:80px;
+    padding-left: 80px;
     background-color: white;
     border-left: none;
-    border-radius: 15px;
-    height: var(--img-height);
+    border-radius: 5px;
+    height: calc(var(--img-height) - 15px);
     word-wrap:break-word;
+    box-shadow: 0px 3px rgb(205, 205, 205);
 }
 
 .info-cont p, .info-cont h2{
     font-family: 'Roboto';
     margin: 0px;
     padding: 0px;
+    padding-left: 10px;
 }
 
 .portrait {
@@ -80,12 +85,13 @@
     position: absolute;
     width: 150px;
     height: var(--img-height);
-    background-color: red;
+    background-color: black;
     border-radius: 50%;
     z-index: 100;
+    box-shadow: 0px 3px rgb(205, 205, 205);
 }
 
-.feeback-sec{
+.feeback-sec {
     font-family: 'Roboto';
     margin-top: 10px;
     width: 100%;
@@ -95,18 +101,19 @@
     border-radius: 5px;
 }
 
-.triangle-img{
+.triangle-img {
     float: left;
     position: absolute;
     width: 100%;
     height: var(--triangle-height);
+    border-radius: 5px;
     margin-bottom: 0px;
     object-fit: cover;
     z-index: 0;
-    
+
 }
 
-.feedback-in{
+.feedback-in {
     padding-left: 1%;
     padding-right: 1%;
     position: inherit;
@@ -119,28 +126,52 @@
     padding-bottom: 5px;
 }
 
-.feedback-form{
+.feedback-form {
     display: inline-block;
     width: 100%;
 }
 
-.feedback-form textarea{
-    padding: 0px;
+.feedback-form textarea {
+    font-family: 'Roboto';
+    padding: 5px;
     margin: 0px;
-    width: 100%;
+    width: calc(100% - 10px);
     height: 75px;
     resize: none;
     border: none;
     background-color: #f3f3f3ff;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-.feedback-form button{
+.feedback-form button {
     border: none;
     cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 3px rgba(0, 0, 0, 0.14);
+    font-family: "Fragment Mono", monospace;
+    background-color: #f3f3f3ff;
+    color: #e83f50;
+    transition-duration: 0.1s;
 }
 
-.anon-feedback-title{
+.feedback-form button:hover {
+    background-color: #e83f50;
+    color: #FFFFFF;
+}
+
+.feedback-form button:active {
+    background-color: #e83f50;
+    color: #FFFFFF;
+    box-shadow: 0px 0px rgba(0, 0, 0, 0.14);
+    transform: translateY(3px);
+}
+
+.anon-feedback-title {
     top:calc(var(--triangle-height) - 30px);
     float: left;
     position: absolute;
@@ -153,9 +184,11 @@
     background-color: #e83f50ff;
 }
 
-.anon-feedback-title h3{
+.anon-feedback-title h3 {
     margin: 0px;
     padding: 0px;
+    font-family: 'Fragment Mono', monospace;
+    font-weight: lighter;
 }
 
 .feedback-in h3 {
@@ -179,14 +212,14 @@
     .info-subsec{
         height: 75px;
     }
-    
+
     .info-cont{
         width: calc(100% - 70px);
         height: 75px;
         margin-left: 35px;
         padding-left:43px;
     }
-    
+
     .portrait {
         width: 75px;
         height: 75px;
