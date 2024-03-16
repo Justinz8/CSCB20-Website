@@ -1,1 +1,0 @@
-On the contact page, a student user must be able scroll down to see a form with which they can submit anonymous feedback.
