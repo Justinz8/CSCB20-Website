@@ -4,7 +4,6 @@ app = Flask(__name__)
 
 @app.route("/<name>")
 def user(name: str):
-    name.strip()
     ans = ""
 
     lower = True
