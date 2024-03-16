@@ -67,6 +67,7 @@ font-family: "Roboto";
     flex: 1;
     background-color: #dddddd;
     height: fit-content;
+    padding-bottom: 5px;
  }
 
 .header-nav {
@@ -97,7 +98,6 @@ font-family: "Roboto";
     background-color: #000000;
     z-index: 800;
     left: var(--header-left);
-    border-radius: 10px;
  }
 
  .head div{
@@ -223,5 +223,12 @@ font-family: "Roboto";
       top: -100vh;
       border-left: transparent solid 2px;
       border-right: transparent solid 2px;
+   }
+   .foot{
+    font-size: 15px;
+   }
+   .foot div{
+    margin-left: 5px;
+    margin-right: 5px;
    }
  }
