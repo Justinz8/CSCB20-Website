@@ -64,7 +64,7 @@ font-family: "Roboto";
     padding-right: 5%;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 50px;
+    padding-top: 75px;
     flex: 1;
     background-color: #eeeeee;
     height: fit-content;
@@ -85,7 +85,7 @@ font-family: "Roboto";
 
  .head {
     align-items: center;
-    height:25px;
+    height:50px;
     display: flex;
     justify-content:space-between;
     position: fixed;
@@ -110,16 +110,14 @@ font-family: "Roboto";
    position: relative;
     text-decoration: none;
     width: fit-content;
-    height: 20px;
     margin-left: 5px;
     margin-right: 5px;
     padding: 3px;
     padding-left: 8px;
     padding-right: 8px;
     text-align: center;
-    font-family: 'Roboto';
-    font-size: 15px;
-    font-style: italic;
+    font-family: 'Fragment Mono';
+    font-size: smaller;
     color: #FFFFFF;
     border: #FFFFFF solid 1px;
  }
@@ -179,9 +177,8 @@ font-family: "Roboto";
    font-family: 'Roboto';
    width: calc(var(--header-width) - 10px);
    left: var(--header-left);
-   border-radius: 10px;
+   border-radius: 5px;
    padding-left: 8px;
-   font-style: italic;
    background-color: #000000;
    z-index: 500;
  }
@@ -205,7 +202,7 @@ font-family: "Roboto";
  }
 
  #awdawkjdhkaj:target {
-   top: 45px;
+   top: 70px;
  }
 
  .head-item:hover{
