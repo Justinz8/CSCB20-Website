@@ -1,1 +1,0 @@
-On the home page, a student user must be able to see all course-related information (prerequisites etc), policies, and technologies used in the course.
