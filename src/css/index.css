@@ -175,8 +175,7 @@ font-family: "Roboto";
    top: -100vh;
    height: fit-content;
    font-family: 'Roboto';
-   width: calc(var(--header-width) - 10px);
-   left: var(--header-left);
+   width: 100vw;
    border-radius: 5px;
    padding-left: 8px;
    background-color: #000000;
@@ -222,7 +221,7 @@ font-family: "Roboto";
 
  @media only screen and (max-width: 1100px) {
   .ham-butt {
-     top: 20px;
+     top: 30px;
      right: 10px;
   }
   .head-item {
