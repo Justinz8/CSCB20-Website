@@ -12,7 +12,8 @@ body {
     margin:0px;
     overflow-x: hidden;
     transition-duration: 0s;
- }
+    background-image: url("../res/bgw.webp")
+}
 
  p {
   color: #666666;
@@ -65,7 +66,7 @@ font-family: "Roboto";
     margin-right: auto;
     padding-top: 50px;
     flex: 1;
-    background-color: #dddddd;
+    background-color: #eeeeee;
     height: fit-content;
     padding-bottom: 5px;
  }
