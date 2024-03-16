@@ -67,7 +67,7 @@
     padding: 0px;
     display: grid;
     grid-template-columns: calc(50% - 2.5px) calc(50% - 2.5px);
-    grid-template-rows: min-content min-content 1fr;
+    grid-template-rows: min-content min-content 1fr 1fr;
     column-gap:  5px;
     row-gap: 5px;
     height: fit-content;
@@ -205,12 +205,25 @@
      color: #FFFFFF;
      border: #FFFFFF solid 1px;
      cursor: pointer;
+     width: 40%;
 }
 
 .home-nav-but a:hover{
     color:black;
     border: black solid 1px;
     background-color: white;
+}
+
+.news-section{
+    grid-row: 4;
+}
+
+.home-nav {
+    font-family: 'Roboto';
+}
+
+.news-entry{
+    border-bottom: 2px solid black;
 }
 
 @media only screen and (max-width: 800px) {
