@@ -4,7 +4,6 @@
 }
 
 .flex-title{
-    margin-top: 50px;
     margin-bottom: 10px;
     display: flex;
     justify-content: right;
@@ -40,7 +39,6 @@
     object-fit: cover;
     background-color: blue;
     z-index: 0;
-    
 }
 
 .flex-container{
@@ -141,6 +139,7 @@
     text-align: center;
     font-size: 15px;
     border-radius: 5px;
+    padding: 5px;
     font-weight: bold;
     text-decoration: none;
     box-shadow: inset 0 0 0 0 rgb(78, 78, 78);
