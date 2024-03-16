@@ -1,1 +1,0 @@
-On the lectures page, a student user must be able to view material covered for each past week, along with a download button for lecture notes if available.
