@@ -31,6 +31,7 @@ def index():
 
 @app.route("/Signup", methods = ["POST", "GET"])
 def Signup():
+    if "user" in session: return redirect(url_for("Home"))
     if request.method=="POST":
         username1 = request.form['username']
         password1 = request.form['password']
@@ -44,10 +45,11 @@ def Signup():
             return redirect(url_for("login"))
         else:
             flash("The username already exists")
-    return render_template("Signup.html")
+    return render_template("Signup.html", notlogged=True)
 
 @app.route("/Login", methods=["POST", "GET"])
 def login():
+    if "user" in session: return redirect(url_for("Home"))
     if request.method == "POST":
         username = request.form['username']
         password = request.form['password']
@@ -58,7 +60,7 @@ def login():
         else:
             session["user"] = username
             return redirect(url_for("Home"))
-    return render_template("Login.html")
+    return render_template("Login.html", notlogged=True)
     
 @app.route("/Assignment")
 def assignment():
@@ -100,6 +102,10 @@ def Tests():
     if "user" not in session: return redirect(url_for("login"))
     return render_template("Tests.html")
 
+@app.route("/Logout")
+def Logout():
+    session.pop("user")
+    return redirect(url_for("login"))
+
 if __name__=="__main__":
-    app.secret_key = b"secretkey"
     app.run(debug=True)

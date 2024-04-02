@@ -25,6 +25,7 @@
             </div>
             <div>
                 <nav class="header-nav">
+                    {%if not notlogged%}
                     <a href="Home" class="head-item">Home</a>
                     <a href="Assignment" class="head-item">Assignments</a>
                     <a href="Labs" class="head-item">Labs</a>
@@ -33,10 +34,14 @@
                     <a href="Lectures" class="head-item">Lectures</a>
                     <a href="Resources" class="head-item">Resources</a>
                     <a href="Tests" class="head-item">Tests</a>
+                    <a href="{{url_for("Logout")}}" class="head-item">logout</a>
+                    {%endif%}
                 </nav>
+                {%if not notlogged%}
                 <a class="ham-butt" href="#ham-toggle">
                     <div class="hamburger"></div>
                 </a>
+                {%endif%}
             </div>
         </header>
         <div class="ham-items" id="ham-toggle">
@@ -49,6 +54,7 @@
                 <a href="Lectures" class="ham-item">Lectures</a>
                 <a href="Resources" class="ham-item">Resources</a>
                 <a href="Tests" class="ham-item">Tests</a>
+                <a href="{{url_for("Logout")}}" class="ham-item">logout</a>
                 <a href="#" class="ham-item">Close Nav</a>
             </div>
         </div>
