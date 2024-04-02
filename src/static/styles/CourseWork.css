@@ -114,7 +114,27 @@
 .subsec-title h3{
     margin: 0px;
 }
+.info-sec {
+    display: grid;
+    grid-template-columns: calc(50%-2.5px) calc(50%-2.5px);
+    width: 100%;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    grid-template-columns: calc(50% - 2.5px) calc(50% - 2.5px);
+    grid-template-rows: min-content min-content 1fr;
+    column-gap:  5px;
+    row-gap: 5px;
+    height: fit-content;
+}
 
+.info-subsec{
+    width: 100%;
+    position: relative;
+    height: fit-content;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
 .subsec-content{
     font-family: 'Roboto';
     font-weight: 600;
@@ -143,5 +163,8 @@
 @media only screen and (max-width: 800px) {
     .assignment-sec{
         display: inline-block;
+    }
+    .info-sec{
+        display: block;
     }
 }

@@ -25,36 +25,39 @@
             </div>
             <div>
                 <nav class="header-nav">
-                    {%if not notlogged%}
-                    <a href="Home" class="head-item">Home</a>
-                    <a href="Assignment" class="head-item">Assignments</a>
-                    <a href="Labs" class="head-item">Labs</a>
-                    <a href="Contact" class="head-item">Contact</a>
-                    <a href="Calendar" class="head-item">Calendar</a>
-                    <a href="Lectures" class="head-item">Lectures</a>
-                    <a href="Resources" class="head-item">Resources</a>
-                    <a href="Tests" class="head-item">Tests</a>
-                    <a href="{{url_for("Logout")}}" class="head-item">logout</a>
-                    {%endif%}
+                    {% if not notlogged %}
+                        <a href="{{ url_for("Home") }}" class="head-item">Home</a>
+                        <a href="{{ url_for("Grades") }}" class="head-item">Grades</a>
+                        <a href="{{ url_for("CourseWork") }}" class="head-item">Course Work</a>
+                        <a href="{{ url_for("Labs") }}" class="head-item">Labs</a>
+                        <a href="{{ url_for("Contact") }}" class="head-item">Contact</a>
+                        <a href="{{ url_for("Calendar") }}" class="head-item">Calendar</a>
+                        <a href="{{ url_for("Lectures") }}" class="head-item">Lectures</a>
+                        <a href="{{ url_for("Resources") }}" class="head-item">Resources</a>
+                        <a href="{{ url_for("Logout") }}" class="head-item">logout</a>
+                    {% endif %}
                 </nav>
-                {%if not notlogged%}
-                <a class="ham-butt" href="#ham-toggle">
-                    <div class="hamburger"></div>
-                </a>
-                {%endif%}
+                {% if not notlogged %}
+                    <a class="ham-butt" href="#ham-toggle">
+                        <div class="hamburger"></div>
+                    </a>
+                {% endif %}
             </div>
+            {% if not notlogged %}
+            <p>Logged in as {{ user.name }}[{{ user.clas }}]</p>
+            {% endif %}
         </header>
         <div class="ham-items" id="ham-toggle">
             <div class="ham-ham">
-                <a href="Home" class="ham-item">Home</a>
-                <a href="Assignment" class="ham-item">Assignments</a>
-                <a href="Labs" class="ham-item">Labs</a>
-                <a href="Contact" class="ham-item">Contact</a>
-                <a href="Calendar" class="ham-item">Calendar</a>
-                <a href="Lectures" class="ham-item">Lectures</a>
-                <a href="Resources" class="ham-item">Resources</a>
-                <a href="Tests" class="ham-item">Tests</a>
-                <a href="{{url_for("Logout")}}" class="ham-item">logout</a>
+                <a href="{{ url_for("Home") }}" class="ham-item">Home</a>
+                <a href="{{ url_for("Grades") }}" class="ham-item">Grades</a>
+                <a href="{{ url_for("CourseWork") }}" class="ham-item">Course Work</a>
+                <a href="{{ url_for("Labs") }}" class="ham-item">Labs</a>
+                <a href="{{ url_for("Contact") }}" class="ham-item">Contact</a>
+                <a href="{{ url_for("Calendar") }}" class="ham-item">Calendar</a>
+                <a href="{{ url_for("Lectures") }}" class="ham-item">Lectures</a>
+                <a href="{{ url_for("Resources") }}" class="ham-item">Resources</a>
+                <a href="{{ url_for("Logout") }}" class="ham-item">logout</a>
                 <a href="#" class="ham-item">Close Nav</a>
             </div>
         </div>

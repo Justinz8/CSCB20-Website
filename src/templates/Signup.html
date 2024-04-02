@@ -29,6 +29,12 @@
                 <br />
                 <input type="password" name="password" placeholder="password" required />
                 <br />
+                <input type="radio" name="clas" value="Student"> Student
+                <br />
+                <input type="radio" name="clas" value="Prof."> Prof.
+                <br />
+                <a href="{{ url_for('login') }}">Login</a>
+                <br />
                 <input type="submit" value="Submit" />
             </form>
         </div>

@@ -10,6 +10,10 @@ from sqlalchemy import text
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timedelta
 
+courseworks = ("Midterm", "Final", "Assignment 1", "Assignment 2", "Assignment 3",
+               "Lab 1", "Lab 2", "Lab 3", "Lab 4", "Lab 5", "Lab 6", "Lab 7", "Lab 8",
+               "Lab 9", "Lab 10", "Lab 11")
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///userinfo.db'
@@ -21,6 +25,22 @@ class User(db.Model):
     username = db.Column(db.String(20), primary_key = True)
     password = db.Column(db.String(40), nullable=False)
     clas = db.Column(db.String(20), nullable=False)
+    
+class Notes(db.Model):
+    __tablename__ = 'Notes'
+    type = db.Column(db.String(20), primary_key = True)
+    user = db.Column(db.String(20), db.ForeignKey('User.username'), nullable = False, primary_key=True)
+    grade = db.Column(db.Integer)
+    extraNotes = db.Column(db.Text)
+class user:
+    def __init__(self, name, clas):
+        self.name = name
+        self.clas = clas
+    
+class gradeEntry:
+    def __init__(self, grade, notes):
+        self.grade=grade
+        self.notes=notes
 
 with app.app_context():
     db.create_all()
@@ -35,11 +55,12 @@ def Signup():
     if request.method=="POST":
         username1 = request.form['username']
         password1 = request.form['password']
+        clas1 = request.form['clas']
     
         rows = db.session.query(User).filter(User.username == username1).count()
         
         if rows==0:
-            newuser = User(username = username1, password = password1, clas='Student')
+            newuser = User(username = username1, password = password1, clas=clas1)
             db.session.add(newuser)
             db.session.commit()
             return redirect(url_for("login"))
@@ -58,49 +79,60 @@ def login():
         if rows==0:
              flash("The username and/or password is invalid")
         else:
-            session["user"] = username
+            us = db.session.query(User).filter(User.username == username and User.password==password).first()
+            session["user"] = user(us.username, us.clas).__dict__
             return redirect(url_for("Home"))
     return render_template("Login.html", notlogged=True)
     
-@app.route("/Assignment")
-def assignment():
+@app.route("/CourseWork")
+def CourseWork():
     if "user" not in session: return redirect(url_for("login"))
-    return render_template("Assignment.html")
+    return render_template("CourseWork.html", user=session["user"])
+
+@app.route("/Grades")
+def Grades():
+    if "user" not in session: return redirect(url_for("login"))
+    grades = {}
+    
+    for i in courseworks:
+        q = db.session.query(Notes).filter(Notes.type==i, Notes.user==session["user"]["name"])
+        if q.count()==0:
+            grades[i]=gradeEntry("Not Submitted", "Not Submitted")
+        else:
+            q = q.first()
+            grades[i]=gradeEntry(q.grade, q.extraNotes)
+    
+    return render_template("Grades.html", user=session["user"], grades=grades)
 
 @app.route("/Calendar")
 def Calendar():
     if "user" not in session: return redirect(url_for("login"))
-    return render_template("Calendar.html")  
+    return render_template("Calendar.html", user=session["user"])  
 
 @app.route("/Contact")
 def Contact():
     if "user" not in session: return redirect(url_for("login"))
-    return render_template("Contact.html")
+    return render_template("Contact.html", user=session["user"])
 
 @app.route("/Home")
 def Home():
     if "user" not in session: return redirect(url_for("login"))
-    return render_template("index.html")
+    return render_template("index.html", user=session["user"])
 
 @app.route("/Labs")
 def Labs():
     if "user" not in session: return redirect(url_for("login"))
-    return render_template("Labs.html")
+    return render_template("Labs.html", user=session["user"])
 
 @app.route("/Lectures")
 def Lectures():
     if "user" not in session: return redirect(url_for("login"))
-    return render_template("Lectures.html")
+    return render_template("Lectures.html", user=session["user"])
 
 @app.route("/Resources")
 def Resources():
     if "user" not in session: return redirect(url_for("login"))
-    return render_template("Resources.html")
-
-@app.route("/Tests")
-def Tests():
-    if "user" not in session: return redirect(url_for("login"))
-    return render_template("Tests.html")
+    return render_template("Resources.html", user=session["user"])
 
 @app.route("/Logout")
 def Logout():

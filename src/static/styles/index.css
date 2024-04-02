@@ -88,9 +88,9 @@ font-family: "Roboto";
     display: flex;
     justify-content:space-between;
     position: fixed;
-    width: 80vw;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    width: 96vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 2px solid black;
@@ -165,6 +165,10 @@ font-family: "Roboto";
    height: 30px;
  }
 
+.head p{
+  width: 10vw;
+}
+
  .title {
    height: 40px;
  }
@@ -230,5 +234,10 @@ font-family: "Roboto";
      top: -100vh;
      border-left: transparent solid 2px;
      border-right: transparent solid 2px;
+  }
+  .head {
+    width: 80vw;
+    padding-right: 10vw;
+    padding-left: 10vw;
   }
  }

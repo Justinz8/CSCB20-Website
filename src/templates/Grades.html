@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet"
+              href="{{ url_for('static',filename='styles/index.css') }}">
+        <link rel="stylesheet"
+              href="{{ url_for('static',filename='styles/Grades.css') }}">
+        <meta charset="utf-8">
+        <title>CSCB20 WEBSITE</title>
+        <link href='https://fonts.googleapis.com/css?family=Roboto'
+              rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono"
+              rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css2?family=JetBrains+Mono'
+              rel='stylesheet'>
+    </head>
+    <body>
+        {% extends "template.html" %}
+        {% block content %}
+        <table>
+            <tr>
+                <th>Course Work</th>
+                <th>Grade</th>
+                <th>Extra Notes</th>
+            </tr>
+            {% for i in grades.keys()%}
+            <tr>
+                <th>{{ i }}</th>
+                <th>{{ grades[i].grade }}</th>
+                <th>{{ grades[i].notes }}</th>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endblock %}
+    </body>
+</html>
