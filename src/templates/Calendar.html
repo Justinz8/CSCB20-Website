@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet"
+              href="{{ url_for('static',filename='styles/index.css') }}">
+        <link rel="stylesheet"
+              href="{{ url_for('static',filename='styles/Calendar.css') }}">
+        <meta charset="utf-8">
+        <title>CSCB20 WEBSITE</title>
+        <link href='https://fonts.googleapis.com/css?family=Roboto'
+              rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono"
+              rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css2?family=JetBrains+Mono'
+              rel='stylesheet'>
+    </head>
+    <body>
+        {% extends "template.html" %}
+        {% block content %}
+            <div class="flex-title">
+                <div class="title-poly">
+                    <h2>CALENDAR</h2>
+                </div>
+            </div>
+            <div class="calendar-box">
+                <div class="calendar-big">
+                    <iframe src="https://calendar.google.com/calendar/embed?src=ca5ee51a6fab6bf642304249987b40a14509cbdf9bf83e679d1e9245b7513523%40group.calendar.google.com&ctz=America%2FToronto"
+                            style="border: 0"
+                            width="800"
+                            height="600"
+                            frameborder="0"
+                            scrolling="no"></iframe>
+                </div>
+                <div class="calendar-small">
+                    <iframe src="https://calendar.google.com/calendar/embed?&mode=AGENDA&height=600&wkst=1&ctz=America%2FToronto&bgcolor=%23ffffff&src=Y2E1ZWU1MWE2ZmFiNmJmNjQyMzA0MjQ5OTg3YjQwYTE0NTA5Y2JkZjliZjgzZTY3OWQxZTkyNDViNzUxMzUyM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23616161"
+                            style="border:solid 1px #777"
+                            width="800"
+                            height="600"
+                            frameborder="0"
+                            scrolling="no"></iframe>
+                </div>
+            </div>
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>CSCB20 WEBSITE</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+              rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono"
+              rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
+              rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css2?family=JetBrains+Mono'
+              rel='stylesheet'>
+        <link rel="stylesheet" href="../css/Lectures.css">
+    </head>
+    <body>
+        {% extends "template.html" %}
+        {% block content %}
+            <!-- Prints the error message. -->
+            {% with error_message = get_flashed_messages() %}
+                {% if error_message %}
+                    <!-- Loops through the error messages. -->
+                    {% for error in error_message %}<p>{{ error }}</p>{% endfor %}
+                {% endif %}
+            {% endwith %}
+            <h1>Log in</h1>
+            <form action="/Login" method="POST">
+                <input type="text" name="username" placeholder="username" required />
+                <br />
+                <input type="password" name="password" placeholder="password" required />
+                <br />
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+    {% endblock %}
+</body>
+</html>

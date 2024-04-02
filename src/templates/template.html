@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet"
+              href="{{ url_for('static',filename='styles/index.css') }}">
+        <link rel="stylesheet"
+              href="{{ url_for('static',filename='styles/Resources.css') }}">
+        <meta charset="utf-8">
+        <title>CSCB20 WEBSITE</title>
+        <link href='https://fonts.googleapis.com/css2?family=JetBrains+Mono'
+              rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+              rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono"
+              rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
+              rel="stylesheet">
+    </head>
+    <body>
+        <header class="head">
+            <div>
+                <a href="index.html">
+                    <img src="/static/res/cscb20_w_logo.webp" class="logo">
+                </a>
+            </div>
+            <div>
+                <nav class="header-nav">
+                    <a href="Home" class="head-item">Home</a>
+                    <a href="Assignment" class="head-item">Assignments</a>
+                    <a href="Labs" class="head-item">Labs</a>
+                    <a href="Contact" class="head-item">Contact</a>
+                    <a href="Calendar" class="head-item">Calendar</a>
+                    <a href="Lectures" class="head-item">Lectures</a>
+                    <a href="Resources" class="head-item">Resources</a>
+                    <a href="Tests" class="head-item">Tests</a>
+                </nav>
+                <a class="ham-butt" href="#ham-toggle">
+                    <div class="hamburger"></div>
+                </a>
+            </div>
+        </header>
+        <div class="ham-items" id="ham-toggle">
+            <div class="ham-ham">
+                <a href="Home" class="ham-item">Home</a>
+                <a href="Assignment" class="ham-item">Assignments</a>
+                <a href="Labs" class="ham-item">Labs</a>
+                <a href="Contact" class="ham-item">Contact</a>
+                <a href="Calendar" class="ham-item">Calendar</a>
+                <a href="Lectures" class="ham-item">Lectures</a>
+                <a href="Resources" class="ham-item">Resources</a>
+                <a href="Tests" class="ham-item">Tests</a>
+                <a href="#" class="ham-item">Close Nav</a>
+            </div>
+        </div>
+        <div class="body">
+            {% block content %}{% endblock %}
+        </div>
+        <footer class="foot">
+            <div>
+                <h1 id="footer-logo">CSCB20</h1>
+                <hr style="width:50px;
+                           text-align:left;
+                           margin-left:0;
+                           height:2px;
+                           background-color:#cccccc;
+                           border-width:0">
+                <p>
+                    site designed by
+                    <br>
+                    <b>Justin Zhang, Nisith DeSilva, Bill Jin</b>
+                </p>
+            </div>
+            <div class="footer-item">
+                <a href="index.html">Home</a>
+                <br>
+                <a href="Lectures.html">Lectures</a>
+                <br>
+                <a href="Labs.html">Labs</a>
+                <br>
+                <a href="Assignment.html">Assignments</a>
+            </div>
+            <div class="footer-item">
+                <a href="Calendar.html">Calendar</a>
+                <br>
+                <a href="Resources.html">Resources</a>
+                <br>
+                <a href="Contact.html">Contact</a>
+                <br>
+                <a href="https://web.cs.toronto.edu/people/faculty-directory">UofT Faculty</a>
+            </div>
+        </footer>
+    </body>
+</html>

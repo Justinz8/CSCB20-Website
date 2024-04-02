@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet"
+              href="{{ url_for('static',filename='styles/index.css') }}">
+        <link rel="stylesheet"
+              href="{{ url_for('static',filename='styles/Lectures.css') }}">
+        <meta charset="utf-8">
+        <title>CSCB20 WEBSITE</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+              rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono"
+              rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
+              rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css2?family=JetBrains+Mono'
+              rel='stylesheet'>
+    </head>
+    <body>
+        {% extends "template.html" %}
+        {% block content %}
+            <div class="flex-title">
+                <div class="title-poly">
+                    <h2>LECTURES</h2>
+                </div>
+            </div>
+            <div class="lecture-subsec">
+                <img src="/static/res/graphic1.png" class="triangle-img">
+                <div class="subsec-title">
+                    <h3>Week 0</h3>
+                </div>
+                <div class="subsec-content">
+                    <p>
+                        <i>Introduction</i>
+                    </p>
+                </div>
+            </div>
+            <div class="content-block">
+                <a class="button dl-btn" href="../res/Sample_Test.pdf">Notes</a>
+                <a class="button dl-btn" href="../res/Sample_Test.pdf">Worksheet</a>
+                <a class="button dl-btn" href="../res/Sample_Test.pdf">Solutions</a>
+            </div>
+            <div class="lecture-subsec">
+                <img src="/static/res/graphic2.png" class="triangle-img">
+                <div class="subsec-title" style="background-color: #f46b48ff;">
+                    <h3>Week 1</h3>
+                </div>
+                <div class="subsec-content">
+                    <p>
+                        <i>Relational algebra, ...</i>
+                    </p>
+                </div>
+            </div>
+            <div class="content-block">
+                <a class="button dl-btn" href="../res/Sample_Test.pdf">Notes</a>
+                <a class="button dl-btn" href="../res/Sample_Test.pdf">Worksheet</a>
+            </div>
+            <div class="lecture-subsec">
+                <img src="/static/res/graphic3.png" class="triangle-img">
+                <div class="subsec-title" style="background-color: #5ab7bfff;">
+                    <h3>Week 2</h3>
+                </div>
+                <div class="subsec-content">
+                    <p>
+                        <i>Wrapping up relational algebra and starting with SQL, ...</i>
+                    </p>
+                </div>
+            </div>
+            <div class="lecture-subsec">
+                <img src="/static/res/bgb.webp" class="triangle-img">
+                <div class="subsec-title">
+                    <h3>Week 3</h3>
+                </div>
+                <div class="subsec-content">
+                    <p>
+                        <i>SQL Queries, ...</i>
+                    </p>
+                </div>
+            </div>
+        {% endblock %}
+    </body>
+</html>

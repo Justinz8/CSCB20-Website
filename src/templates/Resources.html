@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet"
+              href="{{ url_for('static',filename='styles/index.css') }}">
+        <link rel="stylesheet"
+              href="{{ url_for('static',filename='styles/Resources.css') }}">
+        <meta charset="utf-8">
+        <title>CSCB20 WEBSITE</title>
+        <link href='https://fonts.googleapis.com/css2?family=JetBrains+Mono'
+              rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+              rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono"
+              rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
+              rel="stylesheet">
+    </head>
+    <body>
+        {% extends "template.html" %}
+        {% block content %}
+            <div class="flex-title">
+                <div class="title-poly">
+                    <h2>RESOURCES</h2>
+                </div>
+            </div>
+            <div class="info-sec">
+                <div class="info-subsec">
+                    <div class="subsec-title" style="top:0px;">
+                        <h3>Links</h3>
+                    </div>
+                    <div class="subsec-content" style="margin-top:33px">
+                        <p>
+                            <a href="https://piazza.com">Piazza</a>
+                        </p>
+                        <p>
+                            <a href="https://markus2.utsc.utoronto.ca/">Markus</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="info-subsec">
+                    <img src="/static/res/graphic2.png"
+                         class="triangle-img"
+                         style="object-position: 0px 0px">
+                    <div class="subsec-title" style="background-color: #f46b48ff;">
+                        <h3>Course Utilities</h3>
+                    </div>
+                    <div class="subsec-content">
+                        <p>
+                            <a href="https://dbis-uibk.github.io/relax/calc/local/uibk/local/0">Relational Algebra Calculator</a>
+                        </p>
+                        <p>
+                            <a href="https://sqlitebrowser.org/">SQLite online option</a>
+                        </p>
+                        <p>
+                            <a href="https://www.sqlite.org/index.html ">SQLite Download</a>
+                        </p>
+                        <p>
+                            <a href="https://validator.w3.org/ ">HTML Validator</a>
+                        </p>
+                        <p>
+                            <a href="https://flask.palletsprojects.com/en/2.3.x/">Flask resource</a>
+                        </p>
+                        <p>
+                            <a href="https://code.visualstudio.com/download">VS Code download</a>
+                        </p>
+                        <p>
+                            <a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/">Flask SQLalchemy resource</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="info-subsec">
+                    <img src="/static/res/graphic1.png"
+                         class="triangle-img"
+                         style="object-position: 0px 0px">
+                    <div class="subsec-title" style="background-color: #5ab7bfff;">
+                        <h3>Past Assessments</h3>
+                    </div>
+                    <div class="subsec-content">
+                        <p>
+                            2023 Final W: <a href="../res/Sample_Test.pdf">2023 F W</a>
+                        </p>
+                        <p>
+                            2022 Final F: <a href="../res/Sample_Test.pdf">2022 F F</a>
+                        </p>
+                        <p>
+                            2022 Midterm S: <a href="../res/Sample_Test.pdf">2022 M S</a>
+                        </p>
+                        <p>
+                            2023 Midterm F: <a href="../res/Sample_Test.pdf">2023 M F</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </body>
+</html>

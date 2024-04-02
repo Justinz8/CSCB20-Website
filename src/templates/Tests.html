@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet"
+              href="{{ url_for('static',filename='styles/index.css') }}">
+        <link rel="stylesheet"
+              href="{{ url_for('static',filename='styles/Tests.css') }}">
+        <meta charset="utf-8">
+        <title>CSCB20 WEBSITE</title>
+        <link href='https://fonts.googleapis.com/css2?family=JetBrains+Mono'
+              rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+              rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono"
+              rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
+              rel="stylesheet">
+    </head>
+    <body>
+        {% extends "template.html" %}
+        {% block content %}
+            <div class="flex-title">
+                <div class="title-poly">
+                    <h2>TESTS</h2>
+                </div>
+            </div>
+            <div class="info-sec">
+                <div class="info-subsec">
+                    <img src="/static/res/graphic1.png"
+                         class="triangle-img"
+                         style="object-position: 0px 0px">
+                    <div class="subsec-title">
+                        <h3>Midterm</h3>
+                    </div>
+                    <div class="subsec-content">
+                        <p>Date: TBA</p>
+                        <p>Weight: 25%</p>
+                        <p>The test will contain RA and SQL queries along with some relational database short answers</p>
+                        <div style="height: 50px;"></div>
+                        <p>Past Midterms:</p>
+                        <p>
+                            2022 Midterm S: <a href="../res/Sample_Test.pdf">2022 M S</a>
+                        </p>
+                        <p>
+                            2023 Midterm F: <a href="../res/Sample_Test.pdf">2023 M F</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="info-subsec">
+                    <img src="/static/res/graphic2.png"
+                         class="triangle-img"
+                         style="object-position: 0px 50%">
+                    <div class="subsec-title" style="background-color: #f46b48ff;">
+                        <h3>Final</h3>
+                    </div>
+                    <div class="subsec-content">
+                        <p>Date: TBA</p>
+                        <p>Weight: 40%</p>
+                        <p>The test is cumulative and cover everything in the course from RA to Python Flask</p>
+                        <div style="height: 50px;"></div>
+                        <p>Past Finals:</p>
+                        <p>
+                            2023 Final W: <a href="../res/Sample_Test.pdf">2023 F W</a>
+                        </p>
+                        <p>
+                            2022 Final F: <a href="../res/Sample_Test.pdf">2022 F F</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="subsec-content"
+                 style="margin-top: 0px;
+                        min-height: 60px;
+                        margin-bottom: 10px">
+                <p>Extra Notes:</p>
+                <p>Make sure to get plenty of sleep and dont leave studying to the night before! Goodluck.</p>
+            </div>
+        {% endblock %}
+    </body>
+</html>
