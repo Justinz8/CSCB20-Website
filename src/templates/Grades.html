@@ -23,7 +23,7 @@
                 <th>Grade</th>
                 <th>Extra Notes</th>
             </tr>
-            {% for i in grades.keys()%}
+            {% for i in grades.keys() %}
             <tr>
                 <th>{{ i }}</th>
                 <th>{{ grades[i].grade }}</th>
@@ -31,6 +31,27 @@
             </tr>
             {% endfor %}
         </table>
+
+        <div class="feeback-sec">
+            <img src="/static/res/graphic3.png" class="triangle-img">
+            <div class="anon-feedback-title">
+                <h3>Remark request</h3>
+            </div>
+            <div class="feedback-in">
+                {% with error_message = get_flashed_messages() %}
+                {% if error_message %}
+                    <!-- Loops through the error messages. -->
+                    {% for error in error_message %}<p>{{ error }}</p>{% endfor %}
+                {% endif %}
+            {% endwith %}
+                <p>Please pick the course work you want remarked and further details (e.g. specific part that has a problem)</p>
+                <form class="feedback-form" action="{{ url_for('remarkReq') }}" method="POST">
+                    <input type="text" name="work"></input>
+                    <textarea name="reason"></textarea>
+                    <button type='submit' value="Submit">Submit</button>
+                </form>
+            </div>
+        </div>
         {% endblock %}
     </body>
 </html>

@@ -9,6 +9,7 @@ import sqlite3
 from sqlalchemy import text
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timedelta
+from flask_bcrypt import Bcrypt
 
 courseworks = ("Midterm", "Final", "Assignment 1", "Assignment 2", "Assignment 3",
                "Lab 1", "Lab 2", "Lab 3", "Lab 4", "Lab 5", "Lab 6", "Lab 7", "Lab 8",
@@ -19,7 +20,7 @@ app.config['SECRET_KEY'] = 'secret_key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///userinfo.db'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes = 15)
 db = SQLAlchemy(app)
-
+bcrypt = Bcrypt(app)
 class User(db.Model):
     __tablename__ = 'User'
     username = db.Column(db.String(20), primary_key = True)
@@ -32,6 +33,12 @@ class Notes(db.Model):
     user = db.Column(db.String(20), db.ForeignKey('User.username'), nullable = False, primary_key=True)
     grade = db.Column(db.Integer)
     extraNotes = db.Column(db.Text)
+    
+class Remarks(db.Model):
+    __tablename__ = 'Remarks'
+    work = db.Column(db.String(20), primary_key = True)
+    user = db.Column(db.String(20), db.ForeignKey('User.username'), nullable = False, primary_key=True)
+    reason = db.Column(db.Text)
 class user:
     def __init__(self, name, clas):
         self.name = name
@@ -54,7 +61,7 @@ def Signup():
     if "user" in session: return redirect(url_for("Home"))
     if request.method=="POST":
         username1 = request.form['username']
-        password1 = request.form['password']
+        password1 = bcrypt.generate_password_hash(request.form['password']).decode('utf-8')
         clas1 = request.form['clas']
     
         rows = db.session.query(User).filter(User.username == username1).count()
@@ -75,12 +82,11 @@ def login():
         username = request.form['username']
         password = request.form['password']
     
-        rows = db.session.query(User).filter(User.username == username and User.password==password).count()
-        if rows==0:
+        rows = db.session.query(User).filter(User.username == username).first()
+        if not rows or not bcrypt.check_password_hash(rows.password, password):
              flash("The username and/or password is invalid")
         else:
-            us = db.session.query(User).filter(User.username == username and User.password==password).first()
-            session["user"] = user(us.username, us.clas).__dict__
+            session["user"] = user(rows.username, rows.clas).__dict__
             return redirect(url_for("Home"))
     return render_template("Login.html", notlogged=True)
     
@@ -138,6 +144,23 @@ def Resources():
 def Logout():
     session.pop("user")
     return redirect(url_for("login"))
+
+@app.route("/remarkReq", methods=["POST", "GET"])
+def remarkReq():
+    if(request.method=='POST'):
+        work1 = request.form['work']
+        reason1 = request.form['reason']
+        user1 = session["user"]["name"]
+        
+        q = db.session.query(Remarks).filter(Remarks.user==user1, Remarks.work==work1)
+        print(q.first(), user1, work1)
+        if q.count()!=0:
+            flash("theres already an ongoing remark for this course work")
+        else:
+            db.session.add(Remarks(work=work1, reason=reason1, user=user1))
+            db.session.commit()
+    
+    return redirect(url_for("Grades"))
 
 if __name__=="__main__":
     app.run(debug=True)
