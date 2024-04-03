@@ -6,7 +6,7 @@ from flask import (Flask,redirect,
     abort,
     flash)
 import sqlite3
-from sqlalchemy import text
+from sqlalchemy import text, desc
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timedelta
 from flask_bcrypt import Bcrypt
@@ -39,6 +39,12 @@ class Remarks(db.Model):
     work = db.Column(db.String(20), primary_key = True)
     user = db.Column(db.String(20), db.ForeignKey('User.username'), nullable = False, primary_key=True)
     reason = db.Column(db.Text)
+    
+class anonFeedback(db.Model):
+    __tablename__='anonFeedback'
+    id = db.Column(db.Integer, primary_key=True)
+    Feedback = db.Column(db.Text)
+    qnmb = db.Column(db.Integer)
 class user:
     def __init__(self, name, clas):
         self.name = name
@@ -145,6 +151,20 @@ def Logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+@app.route("/SubmitFeedback", methods = ["POST", "GET"])
+def SubmitFeedback():
+    if(request.method=='POST'):
+        q = db.session.query(anonFeedback).order_by(desc(anonFeedback.id))
+        idnmb = 0
+        if q.count()!=0:
+            idnmb = q.first().id+1
+        db.session.add(anonFeedback(id=idnmb, Feedback=request.form['q1'], qnmb=1))
+        db.session.add(anonFeedback(id=idnmb+1, Feedback=request.form['q2'], qnmb=2))
+        db.session.add(anonFeedback(id=idnmb+2, Feedback=request.form['q3'], qnmb=3))
+        db.session.add(anonFeedback(id=idnmb+3, Feedback=request.form['q4'], qnmb=4))
+        db.session.commit()
+    return redirect(url_for("Contact"))
+
 @app.route("/remarkReq", methods=["POST", "GET"])
 def remarkReq():
     if(request.method=='POST'):
@@ -153,12 +173,16 @@ def remarkReq():
         user1 = session["user"]["name"]
         
         q = db.session.query(Remarks).filter(Remarks.user==user1, Remarks.work==work1)
-        print(q.first(), user1, work1)
+        
         if q.count()!=0:
             flash("theres already an ongoing remark for this course work")
         else:
-            db.session.add(Remarks(work=work1, reason=reason1, user=user1))
-            db.session.commit()
+            q1 = db.session.query(Notes).filter(Notes.type==work1, Notes.user==user1)
+            if q1.count()==0:
+                flash("This assignment hasnt been graded yet")
+            else:
+                db.session.add(Remarks(work=work1, reason=reason1, user=user1))
+                db.session.commit()
     
     return redirect(url_for("Grades"))
 
