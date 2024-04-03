@@ -116,7 +116,7 @@ def Grades():
             q = q.first()
             grades[i]=gradeEntry(q.grade, q.extraNotes)
     
-    return render_template("Grades.html", user=session["user"], grades=grades)
+    return render_template("Grades.html", user=session["user"], grades=grades, courseworks=courseworks)
 
 @app.route("/Calendar")
 def Calendar():
