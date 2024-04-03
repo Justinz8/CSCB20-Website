@@ -27,10 +27,16 @@
                 <nav class="header-nav">
                     {% if not notlogged %}
                         <a href="{{ url_for("Home") }}" class="head-item">Home</a>
+                        {% if user.clas == 'Student' %}
                         <a href="{{ url_for("Grades") }}" class="head-item">Grades</a>
+                        <a href="{{ url_for("Contact") }}" class="head-item">Contact</a>
+                        {% else %}
+                        <a href="{{ url_for("Grades") }}" class="head-item">Remarks</a>
+                        <a href="{{ url_for("Contact") }}" class="head-item">Marks</a>
+                        <a href="{{ url_for("Feedback") }}" class="head-item">Feedback</a>
+                        {% endif %}
                         <a href="{{ url_for("CourseWork") }}" class="head-item">Course Work</a>
                         <a href="{{ url_for("Labs") }}" class="head-item">Labs</a>
-                        <a href="{{ url_for("Contact") }}" class="head-item">Contact</a>
                         <a href="{{ url_for("Calendar") }}" class="head-item">Calendar</a>
                         <a href="{{ url_for("Lectures") }}" class="head-item">Lectures</a>
                         <a href="{{ url_for("Resources") }}" class="head-item">Resources</a>
@@ -51,9 +57,9 @@
             <div class="ham-ham">
                 <a href="{{ url_for("Home") }}" class="ham-item">Home</a>
                 <a href="{{ url_for("Grades") }}" class="ham-item">Grades</a>
+                <a href="{{ url_for("Contact") }}" class="ham-item">Contact</a>
                 <a href="{{ url_for("CourseWork") }}" class="ham-item">Course Work</a>
                 <a href="{{ url_for("Labs") }}" class="ham-item">Labs</a>
-                <a href="{{ url_for("Contact") }}" class="ham-item">Contact</a>
                 <a href="{{ url_for("Calendar") }}" class="ham-item">Calendar</a>
                 <a href="{{ url_for("Lectures") }}" class="ham-item">Lectures</a>
                 <a href="{{ url_for("Resources") }}" class="ham-item">Resources</a>
@@ -62,7 +68,8 @@
             </div>
         </div>
         <div class="body">
-            {% block content %}{% endblock %}
+            {% block content %}
+            {% endblock %}
         </div>
         <footer class="foot">
             <div>

@@ -44,6 +44,7 @@ class anonFeedback(db.Model):
     __tablename__='anonFeedback'
     id = db.Column(db.Integer, primary_key=True)
     Feedback = db.Column(db.Text)
+    Prof = db.Column(db.Text)
     qnmb = db.Column(db.Integer)
 class user:
     def __init__(self, name, clas):
@@ -104,6 +105,7 @@ def CourseWork():
 @app.route("/Grades")
 def Grades():
     if "user" not in session: return redirect(url_for("login"))
+    if session["user"]["clas"]!="Student": return redirect(url_for("Home"))
     grades = {}
     
     for i in courseworks:
@@ -124,7 +126,11 @@ def Calendar():
 @app.route("/Contact")
 def Contact():
     if "user" not in session: return redirect(url_for("login"))
-    return render_template("Contact.html", user=session["user"])
+    if session["user"]["clas"]!="Student": return redirect(url_for("Home"))
+    
+    q = db.session.query(User).with_entities(User.username).filter(User.clas=="Prof.").all()
+    
+    return render_template("Contact.html", user=session["user"], profs = q)
 
 @app.route("/Home")
 def Home():
@@ -146,10 +152,25 @@ def Resources():
     if "user" not in session: return redirect(url_for("login"))
     return render_template("Resources.html", user=session["user"])
 
+@app.route("/Feedback")
+def Feedback():
+    if "user" not in session: return redirect(url_for("login"))
+    if session["user"]["clas"]!="Prof.": return redirect(url_for("Home"))
+    
+    questions = {}
+    
+    for i in range(1, 5):
+        questions[i] = db.session.query(anonFeedback).with_entities(anonFeedback.Feedback).filter(anonFeedback.Prof==session["user"]["name"], anonFeedback.qnmb==i).all()
+    print(questions[1][0])
+    return render_template("Feedback.html", user=session["user"], questions = questions)
+
 @app.route("/Logout")
 def Logout():
     session.pop("user")
     return redirect(url_for("login"))
+
+
+    
 
 @app.route("/SubmitFeedback", methods = ["POST", "GET"])
 def SubmitFeedback():
@@ -158,10 +179,10 @@ def SubmitFeedback():
         idnmb = 0
         if q.count()!=0:
             idnmb = q.first().id+1
-        db.session.add(anonFeedback(id=idnmb, Feedback=request.form['q1'], qnmb=1))
-        db.session.add(anonFeedback(id=idnmb+1, Feedback=request.form['q2'], qnmb=2))
-        db.session.add(anonFeedback(id=idnmb+2, Feedback=request.form['q3'], qnmb=3))
-        db.session.add(anonFeedback(id=idnmb+3, Feedback=request.form['q4'], qnmb=4))
+        db.session.add(anonFeedback(id=idnmb, Feedback=request.form['q1'], qnmb=1, Prof=request.form['professor']))
+        db.session.add(anonFeedback(id=idnmb+1, Feedback=request.form['q2'], qnmb=2, Prof=request.form['professor']))
+        db.session.add(anonFeedback(id=idnmb+2, Feedback=request.form['q3'], qnmb=3, Prof=request.form['professor']))
+        db.session.add(anonFeedback(id=idnmb+3, Feedback=request.form['q4'], qnmb=4, Prof=request.form['professor']))
         db.session.commit()
     return redirect(url_for("Contact"))
 
