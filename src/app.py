@@ -152,6 +152,28 @@ def Resources():
     if "user" not in session: return redirect(url_for("login"))
     return render_template("Resources.html", user=session["user"])
 
+@app.route("/Marks", methods = ["POST", "GET"])
+def Marks():
+    StudentGrades = None
+    if request.method=="POST":
+        u = request.form["student"]
+        StudentGrades = {}
+        for i in courseworks:
+            q1 = db.session.query(Notes).filter(Notes.type==i, Notes.user==u)
+            if q1.count()==0:
+                StudentGrades[i]=gradeEntry("Not Submitted", "Not Submitted")
+            else:
+                q1 = q1.first()
+                StudentGrades[i]=gradeEntry(q1.grade, q1.extraNotes)
+        
+    if "user" not in session: return redirect(url_for("login"))
+    if session["user"]["clas"]!="Prof.": return redirect(url_for("Home"))
+    
+    q = db.session.query(User).with_entities(User.username).filter(User.clas=="Student").all()
+    
+    
+    return render_template("Marks.html", user=session["user"], users = q, SGrades = StudentGrades, courseworks = courseworks)
+
 @app.route("/Feedback")
 def Feedback():
     if "user" not in session: return redirect(url_for("login"))
@@ -169,8 +191,23 @@ def Logout():
     session.pop("user")
     return redirect(url_for("login"))
 
-
-    
+@app.route("/SubmitGrade", methods = ["POST", "GET"])
+def SubmitGrade():
+    if(request.method=="POST"):
+        studentName = request.form["student"]
+        courseWork = request.form["work"]
+        gradePerc = request.form["grade"]
+        ExtraNotes = request.form["extraNotes"]
+        
+        q = db.session.query(Notes).filter(Notes.type==courseWork, Notes.user==studentName)
+        if q.count()==0:
+            newNote = Notes(type = courseWork, user = studentName, grade = gradePerc, extraNotes=ExtraNotes)
+            q.session.add(newNote)
+        else:
+            q.first().extraNotes=ExtraNotes
+            q.first().grade=gradePerc
+        q.session.commit()
+    return redirect(url_for("Marks"))
 
 @app.route("/SubmitFeedback", methods = ["POST", "GET"])
 def SubmitFeedback():

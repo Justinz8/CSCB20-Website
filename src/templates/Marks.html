@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet"
+              href="{{ url_for('static',filename='styles/index.css') }}">
+              <link rel="stylesheet"
+              href="{{ url_for('static',filename='styles/Marks.css') }}">
+        <title>CSCB20 WEBSITE</title>
+        <link href='https://fonts.googleapis.com/css?family=Roboto'
+              rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono"
+              rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css2?family=JetBrains+Mono'
+              rel='stylesheet'>
+    </head>
+    <body>
+        {% extends "template.html" %}
+        {% block content %}
+            <h2>Check Student Grades:</h2>
+            <form action="{{ url_for("Marks") }}" method="POST">
+                <select name="student">
+                    {% for i in users %}<option value="{{ i.username }}">{{ i.username }}</option>{% endfor %}
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+            {% if SGrades != None %}
+                <table>
+                    <tr>
+                        <th>Course Work</th>
+                        <th>Grade</th>
+                        <th>Extra Notes</th>
+                    </tr>
+                    {% for i in SGrades.keys() %}
+                        <tr>
+                            <th>{{ i }}</th>
+                            <th>{{ SGrades[i].grade }}</th>
+                            <th>{{ SGrades[i].notes }}</th>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+            <div class="feeback-sec">
+                <img src="/static/res/graphic3.png" class="triangle-img">
+                <div class="anon-feedback-title">
+                    <h3>Submit Student Grades</h3>
+                </div>
+                <div class="feedback-in">
+            <form class="feedback-form" action="{{ url_for('SubmitGrade') }}" method="POST">
+                <p>Student:</p>
+                <select name="student">
+                    {% for i in users %}<option value="{{ i.username }}">{{ i.username }}</option>{% endfor %}
+                </select>
+                <br />
+                <p>Course Work:</p>
+                <select name="work">
+                    {% for i in courseworks %}
+                    <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <br />
+                <p>Grade Percent:</p>
+                <input type="number" min="0" max="100" name="grade"></input>
+                <br />
+                <p>Extra Notes:</p>
+                <textarea name="extraNotes"></textarea>
+                <br />
+                <button type='submit' value="Submit">Submit</button>
+            </form>
+        </div>
+    </div>
+        {% endblock %}
+    </body>
+</html>
