@@ -244,5 +244,38 @@ def remarkReq():
     
     return redirect(url_for("Grades"))
 
+@app.route("/ReMarks")
+def ReMarks():
+    if "user" not in session: return redirect(url_for("login"))
+    if session["user"]["clas"]!="Prof.": return redirect(url_for("Home"))
+    
+    q = db.session.query(Remarks).all()
+    
+    return render_template("Remarks.html", user = session["user"], RemarkCont = q)
+
+@app.route("/SubmitReMarks", methods = ["POST", "GET"])
+def SubmitReMarks():
+    if request.method=="POST":
+        StudentName = request.form["GUser"]
+        work = request.form["work"]
+        grade = request.form["grade"]
+        q = db.session.query(Notes).filter(Notes.user==StudentName, Notes.type==work).first()
+        q.grade=grade
+        q = db.session.query(Remarks).filter(Remarks.user==StudentName, Remarks.work==work).first()
+        db.session.delete(q)
+        db.session.commit()
+    return redirect(url_for("ReMarks"))
+
+@app.route("/ResolveReMarks", methods= ["POST", "GET"])
+def ResolveReMarks():
+    if request.method=="POST":
+        StudentName = request.form["GUser"]
+        work = request.form["work"]
+        q = db.session.query(Remarks).filter(Remarks.user==StudentName, Remarks.work==work).first()
+        db.session.delete(q)
+        db.session.commit()
+    return redirect(url_for("ReMarks"))
+        
+
 if __name__=="__main__":
     app.run(debug=True)
