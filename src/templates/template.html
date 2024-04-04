@@ -19,7 +19,7 @@
     <body>
         <header class="head">
             <div>
-                <a href="index.html">
+                <a href="{{ url_for('Home') }}">
                     <img src="/static/res/cscb20_w_logo.webp" class="logo">
                 </a>
             </div>
@@ -87,20 +87,26 @@
                 </p>
             </div>
             <div class="footer-item">
-                <a href="index.html">Home</a>
+                <a href="{{ url_for('Home') }}">Home</a>
                 <br>
-                <a href="Lectures.html">Lectures</a>
+                <a href="{{ url_for('Lectures') }}">Lectures</a>
                 <br>
-                <a href="Labs.html">Labs</a>
+                <a href="{{ url_for('Labs') }}">Labs</a>
                 <br>
-                <a href="Assignment.html">Assignments</a>
+                <a href="{{ url_for('CourseWork') }}">Course Work</a>
             </div>
             <div class="footer-item">
-                <a href="Calendar.html">Calendar</a>
+                <a href="{{ url_for('Calendar') }}">Calendar</a>
                 <br>
-                <a href="Resources.html">Resources</a>
+                <a href="{{ url_for('Resources') }}">Resources</a>
                 <br>
-                <a href="Contact.html">Contact</a>
+                {% if not notlogged %}
+                {% if user.clas=="Student" %}
+                <a href="{{ url_for('Contact') }}">Contact</a>
+                {% else %}
+                <a href="{{ url_for('Marks') }}">Marks</a>
+                {% endif %}
+                {% endif%}
                 <br>
                 <a href="https://web.cs.toronto.edu/people/faculty-directory">UofT Faculty</a>
             </div>
