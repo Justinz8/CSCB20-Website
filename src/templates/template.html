@@ -40,7 +40,7 @@
                         <a href="{{ url_for("Calendar") }}" class="head-item">Calendar</a>
                         <a href="{{ url_for("Lectures") }}" class="head-item">Lectures</a>
                         <a href="{{ url_for("Resources") }}" class="head-item">Resources</a>
-                        <a href="{{ url_for("Logout") }}" class="head-item">logout</a>
+                        <a href="{{ url_for("Logout") }}" class="head-item">Logout</a>
                     {% endif %}
                 </nav>
                 {% if not notlogged %}
@@ -50,7 +50,7 @@
                 {% endif %}
             </div>
             {% if not notlogged %}
-            <p>Logged in as {{ user.name }}[{{ user.clas }}]</p>
+            <p>Logged in as {{ user.username }}[{{ user.clas }}]</p>
             {% endif %}
         </header>
         <div class="ham-items" id="ham-toggle">
@@ -63,7 +63,7 @@
                 <a href="{{ url_for("Calendar") }}" class="ham-item">Calendar</a>
                 <a href="{{ url_for("Lectures") }}" class="ham-item">Lectures</a>
                 <a href="{{ url_for("Resources") }}" class="ham-item">Resources</a>
-                <a href="{{ url_for("Logout") }}" class="ham-item">logout</a>
+                <a href="{{ url_for("Logout") }}" class="ham-item">Logout</a>
                 <a href="#" class="ham-item">Close Nav</a>
             </div>
         </div>

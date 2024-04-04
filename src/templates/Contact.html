@@ -80,8 +80,8 @@
                         <p>What do you recommend the lab instructors to do to improve their lab teaching?</p>
                         <textarea name="q4"></textarea>
                         <p>Feedback for: </p>
-                        <select name="professor">
-                            {% for i in profs %}
+                        <select name="instructor">
+                            {% for i in instructors %}
                             <option value="{{ i.username }}">{{ i.username }}</option>
                             {% endfor %}
                         </select>

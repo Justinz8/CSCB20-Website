@@ -46,7 +46,7 @@
             {% endwith %}
                 <p>Please pick the course work you want remarked and further details (e.g. specific part that has a problem)</p>
                 <form class="feedback-form" action="{{ url_for('remarkReq') }}" method="POST">
-                    <select name="work">
+                    <select name="worktype">
                         {% for i in courseworks %}
                         <option value="{{ i }}">{{ i }}</option>
                         {% endfor %}

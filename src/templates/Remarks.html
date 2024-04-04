@@ -24,20 +24,20 @@
                 </tr>
                 {% for i in RemarkCont %}
                     <tr>
-                        <th>{{ i.work }}</th>
-                        <th>{{ i.user }}</th>
+                        <th>{{ i.worktype }}</th>
+                        <th>{{ i.username }}</th>
                         <th>{{ i.reason }}</th>
                         <th>
                             <form action="{{ url_for('SubmitReMarks') }}" method = "POST">
                                 <p>Updated Grades</p>
                                 <input type="number" min="0" max="100" name="grade"></input>
-                                <input type = "hidden" name="GUser" value = "{{ i.user }}" />
-                                <input type = "hidden" name="work" value = "{{ i.work }}" />
+                                <input type = "hidden" name="username" value = "{{ i.username }}" />
+                                <input type = "hidden" name="worktype" value = "{{ i.worktype }}" />
                                 <button type="submit">Submit</button>
                             </form>
                             <form action="{{ url_for('ResolveReMarks') }}" method = "POST">
-                                <input type = "hidden" name="GUser" value = "{{ i.user }}" />
-                                <input type = "hidden" name="work" value = "{{ i.work }}" />
+                                <input type = "hidden" name="username" value = "{{ i.username }}" />
+                                <input type = "hidden" name="worktype" value = "{{ i.worktype }}" />
                                 <button type="submit">Resolve</button>
                             </form>
                         </th>
