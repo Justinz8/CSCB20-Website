@@ -17,20 +17,43 @@
     <body>
         {% extends "template.html" %}
         {% block content %}
-        <table>
-            <tr>
-                <th>Course Work</th>
-                <th>Grade</th>
-                <th>Extra Notes</th>
-            </tr>
-            {% for i in grades.keys() %}
-            <tr>
-                <th>{{ i }}</th>
-                <th>{{ grades[i].grade }}</th>
-                <th>{{ grades[i].notes }}</th>
-            </tr>
-            {% endfor %}
-        </table>
+        <div class="flex-title">
+            <div class="title-poly">
+                <h2>GRADES</h2>
+            </div>
+        </div>
+
+        <div class="head-img">
+            <img src="/static/res/graphic2.png">
+        </div>
+        <div id="table-sec">
+            <table id="tb-headers">
+                <colgroup>
+                    <col id="course-work" />
+                    <col id="grade" />
+                    <col id="notes" />
+                </colgroup>
+                <tr>
+                    <th style="background-color:#e83f50ff">Course Work</th>
+                    <th style="background-color:#f46b48ff">Grade</th>
+                    <th style="background-color:#5ab7bfff">Extra Notes</th>
+                </tr>
+            </table>
+            <table id="assessments">
+                <colgroup>
+                    <col id="course-work" />
+                    <col id="grade" />
+                    <col id="notes" />
+                </colgroup>
+                {% for i in grades.keys() %}
+                <tr>
+                    <th><div>{{ i }}</div></th>
+                    <th><div>{{ grades[i].grade }}</div></th>
+                    <th><div>{{ grades[i].notes }}</div></th>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
 
         <div class="feeback-sec">
             <img src="/static/res/graphic3.png" class="triangle-img">
