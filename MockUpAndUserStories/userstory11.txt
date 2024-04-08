@@ -1,1 +1,0 @@
-In the footer, a student user must be able to navigate the website as well as see details about the site (in this case the names of the students that created the assignment).
