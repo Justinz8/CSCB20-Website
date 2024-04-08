@@ -106,6 +106,15 @@
     font-weight: lighter;
 }
 
+.feedback-form select{
+    border: 2px transparent solid;
+    padding: 5px;
+}
+
+.feedback-form select:hover{
+    border: 2px black solid;
+}
+
 .feedback-in h3 {
     margin: 0px;
     margin-top: 5px;

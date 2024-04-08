@@ -194,6 +194,15 @@
     font-weight: lighter;
 }
 
+.feedback-form select{
+    border: 2px transparent solid;
+    padding: 5px;
+}
+
+.feedback-form select:hover{
+    border: 2px black solid;
+}
+
 @media only screen and (max-width: 800px) {
     .info-sec {
         grid-template-columns: 100%;

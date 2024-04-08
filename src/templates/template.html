@@ -87,6 +87,7 @@
                 </p>
             </div>
             <div class="footer-item">
+                {% if not notlogged%}
                 <a href="{{ url_for('Home') }}">Home</a>
                 <br>
                 <a href="{{ url_for('Lectures') }}">Lectures</a>
@@ -94,8 +95,10 @@
                 <a href="{{ url_for('Labs') }}">Labs</a>
                 <br>
                 <a href="{{ url_for('CourseWork') }}">Course Work</a>
+                {% endif %}
             </div>
             <div class="footer-item">
+                {% if not notlogged%}
                 <a href="{{ url_for('Calendar') }}">Calendar</a>
                 <br>
                 <a href="{{ url_for('Resources') }}">Resources</a>
@@ -109,6 +112,7 @@
                 {% endif%}
                 <br>
                 <a href="https://web.cs.toronto.edu/people/faculty-directory">UofT Faculty</a>
+                {% endif %}
             </div>
         </footer>
     </body>
