@@ -3,6 +3,10 @@
     <head>
         <link rel="stylesheet"
               href="{{ url_for('static',filename='styles/index.css') }}">
+        <link rel="stylesheet"
+            href="{{ url_for('static',filename='styles/Remarks.css') }}">
+        <link rel="stylesheet"
+            href="{{ url_for('static',filename='styles/Buttons.css') }}">
         <meta charset="utf-8">
         <title>CSCB20 WEBSITE</title>
         <link href='https://fonts.googleapis.com/css?family=Roboto'
@@ -15,35 +19,67 @@
     <body>
         {% extends "template.html" %}
         {% block content %}
-            <table>
+            <div class="flex-title">
+                <div class="title-poly">
+                    <h2>REMARKS</h2>
+                </div>
+            </div>
+
+            <div class="head-img">
+                <img src="/static/res/graphic2.png">
+            </div>
+
+            <table id="tb-headers">
+                <colgroup>
+                    <col id="course-work" />
+                    <col id="student" />
+                    <col id="reason" />
+                    <col id="action" />
+                </colgroup>
                 <tr>
-                    <th>Course Work</th>
-                    <th>Student</th>
-                    <th>Reason</th>
-                    <th>Action</th>
+                    <th style="background-color:#e83f50ff">Assessment</th>
+                    <th style="background-color:#f46b48ff">Student</th>
+                    <th style="background-color:#FFB54Aff">Reason</th>
+                    <th style="background-color:#5ab7bfff">Action</th>
                 </tr>
-                {% for i in RemarkCont %}
-                    <tr>
-                        <th>{{ i.worktype }}</th>
-                        <th>{{ i.username }}</th>
-                        <th>{{ i.reason }}</th>
-                        <th>
-                            <form action="{{ url_for('SubmitReMarks') }}" method = "POST">
-                                <p>Updated Grades</p>
-                                <input type="number" min="0" max="100" name="grade"></input>
-                                <input type = "hidden" name="username" value = "{{ i.username }}" />
-                                <input type = "hidden" name="worktype" value = "{{ i.worktype }}" />
-                                <button type="submit">Submit</button>
-                            </form>
-                            <form action="{{ url_for('ResolveReMarks') }}" method = "POST">
-                                <input type = "hidden" name="username" value = "{{ i.username }}" />
-                                <input type = "hidden" name="worktype" value = "{{ i.worktype }}" />
-                                <button type="submit">Resolve</button>
-                            </form>
-                        </th>
-                    </tr>
-                {% endfor %}
             </table>
+            <div id="tb">
+                {% if not RemarkCont %}
+                    <p id="noreq">No requests at this time.</p>
+                {% endif %}
+
+                <table>
+                    <colgroup>
+                        <col id="course-work" />
+                        <col id="student" />
+                        <col id="reason" />
+                        <col id="action" />
+                    </colgroup>
+
+                    {% for i in RemarkCont %}
+                        <tr>
+                            <th>{{ i.worktype }}</th>
+                            <th>{{ i.username }}</th>
+                            <th>{{ i.reason }}</th>
+                            <th>
+                                <form action="{{ url_for('SubmitReMarks') }}" method = "POST">
+                                    <p>Enter new grade:</p>
+                                    <input type="number" step="any" min="0" max="100" name="grade" id="grade-field"></input>
+                                    <input type = "hidden" name="username" value = "{{ i.username }}" />
+                                    <input type = "hidden" name="worktype" value = "{{ i.worktype }}" />
+                                    <br>
+                                    <button type="submit" class="red-btn">Submit</button>
+                                </form>
+                                <form action="{{ url_for('ResolveReMarks') }}" method = "POST">
+                                    <input type = "hidden" name="username" value = "{{ i.username }}" />
+                                    <input type = "hidden" name="worktype" value = "{{ i.worktype }}" />
+                                    <button type="submit" class="red-btn">Resolve</button>
+                                </form>
+                            </th>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
         {% endblock %}
     </body>
 </html>

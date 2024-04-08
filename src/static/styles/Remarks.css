@@ -1,0 +1,84 @@
+#tb {
+    width: 100%;
+    position: relative;
+    top: -10px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    color: #666666;
+    padding: 10px 0px;
+    box-shadow: 0px 3px rgb(205, 205, 205);
+    z-index: 20;
+}
+
+#tb table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+#tb th {
+    padding: 5px 10px;
+    font-weight: normal;
+}
+
+#tb #noreq {
+    padding-left: 15px;
+    font-style: italic;
+}
+
+#course-work {
+    width: 20%;
+}
+
+#student {
+    width: 15%;
+}
+
+#action {
+    width: 20%;
+}
+
+#tb-headers {
+    width: 100%;
+    table-layout: fixed;
+    border-radius: 5px;
+    font-family: "Fragment Mono", monospace;
+    color: white;
+    border-spacing: 0px;
+    padding-bottom: 0px;
+    z-index: 10;
+    position: relative;
+    top: -5px;
+}
+
+#tb-headers th {
+    padding: 10px 0px;
+    font-weight: lighter;
+}
+
+.head-img{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.head-img img{
+    width: 100%;
+    object-fit: cover;
+    height: var(--triangle-height);
+    border-radius: 5px;
+}
+
+#grade-field {
+    width: 75px;
+    padding: 5px;
+    margin-bottom: 10px;
+    position: relative;
+    top: -10px;
+    font-family: 'Roboto';
+    resize: none;
+    border: none;
+    background-color: #f3f3f3ff;
+    margin-bottom: 10px;
+}
