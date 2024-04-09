@@ -1,3 +1,8 @@
+h2{
+    font-family: "Fragment Mono";
+    color: rgb(78, 78, 78);
+}
+
 .feeback-sec {
     font-family: 'Roboto';
     margin-top: 10px;
@@ -38,13 +43,18 @@
     width: 100%;
 }
 
-.feedback-form select{
+.feedback-form select, .markselect form select{
     border: 2px transparent solid;
+    border-radius: 5px;
     padding: 5px;
+    background-color: white;
+    font-family: "Roboto";
+
+    transition: background-color 0.28s ease-in-out;
 }
 
-.feedback-form select:hover{
-    border: 2px black solid;
+.feedback-form select:hover, .markselect select:hover{
+    background-color: rgb(225, 225, 225);
 }
 
 .feedback-form textarea {
@@ -87,6 +97,20 @@
     transform: translateY(3px);
 }
 
+.feedback-form input{
+    border: 1px transparent rgb(78, 78, 78);
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
+    font-family: "Roboto";
+
+    transition: background-color ease-in-out .28s;
+}
+
+.feedback-form input:hover{
+    background-color: rgb(225, 225, 225);
+}
+
 .anon-feedback-title {
     top:calc(var(--triangle-height) - 30px);
     float: left;
@@ -113,4 +137,70 @@
     margin-bottom: 5px;
     padding: 0px;
     font-weight: lighter;
+}
+
+#assessments {
+    width: 100%;
+    position: relative;
+    top: -10px;
+    table-layout: fixed;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    color: #666666;
+    font-weight: lighter;
+    padding-top: 10px;
+    box-shadow: 0px 3px rgb(205, 205, 205);
+    z-index: 20;
+}
+
+#assessments th {
+    padding: 5px 10px;
+}
+
+#assessments div {
+    background-color: #f3f3f3ff;
+    border-radius: 5px;
+    padding: 10px 0px;
+    font-weight: normal;
+}
+
+#course-work {
+    width: 20%;
+}
+
+#grade {
+    width: 20%;
+}
+
+#tb-headers {
+    width: 100%;
+    table-layout: fixed;
+    border-radius: 5px;
+    font-family: "Fragment Mono", monospace;
+    color: white;
+    border-spacing: 0px;
+    padding-bottom: 0px;
+    z-index: 10;
+    position: relative;
+    top: -5px;
+}
+
+#tb-headers th {
+    padding: 10px 0px;
+    font-weight: lighter;
+}
+
+.head-img{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.head-img img{
+    width: 100%;
+    object-fit: cover;
+    height: var(--triangle-height);
+    border-radius: 5px;
 }
