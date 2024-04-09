@@ -5,6 +5,8 @@
               href="{{ url_for('static',filename='styles/index.css') }}">
               <link rel="stylesheet"
               href="{{ url_for('static',filename='styles/Marks.css') }}">
+              <link rel ="stylesheet"
+              href="{{ url_for('static', filename='styles/Buttons.css')}}">
         <title>CSCB20 WEBSITE</title>
         <link href='https://fonts.googleapis.com/css?family=Roboto'
               rel='stylesheet'>
@@ -16,28 +18,52 @@
     <body>
         {% extends "template.html" %}
         {% block content %}
+            <div class="flex-title">
+                <div class="title-poly">
+                    <h2>MARKS</h2>
+                </div>
+            </div>
             <h2>Check Student Grades:</h2>
-            <form action="{{ url_for("Marks") }}" method="POST">
-                <select name="student">
-                    {% for i in users %}<option value="{{ i.username }}">{{ i.username }}</option>{% endfor %}
-                </select>
-                <button type="submit">Submit</button>
-            </form>
+            <div class = "markselect">
+                <form action="{{ url_for('Marks') }}" method="POST">
+                    <select name="student">
+                        {% for i in users %}<option value="{{ i.username }}">{{ i.username }}</option>{% endfor %}
+                    </select>
+                    <button class="red-btn" type="submit">Open</button>
+                </form>
+            </div>
             {% if SGrades != None %}
-                <table>
-                    <tr>
-                        <th>Course Work</th>
-                        <th>Grade</th>
-                        <th>Extra Notes</th>
-                    </tr>
-                    {% for i in SGrades.keys() %}
+                <div class="head-img">
+                    <img src="/static/res/graphic2.png">
+                </div>
+                <div id="table-sec">
+                    <table id="tb-headers">
+                        <colgroup>
+                            <col id="course-work" />
+                            <col id="grade" />
+                            <col id="notes" />
+                        </colgroup>
                         <tr>
-                            <th>{{ i }}</th>
-                            <th>{{ SGrades[i].grade }}</th>
-                            <th>{{ SGrades[i].notes }}</th>
+                            <th style="background-color:#e83f50ff">Course Work</th>
+                            <th style="background-color:#f46b48ff">Grade</th>
+                            <th style="background-color:#5ab7bfff">Extra Notes</th>
                         </tr>
-                    {% endfor %}
-                </table>
+                    </table>
+                    <table id="assessments">
+                        <colgroup>
+                            <col id="course-work" />
+                            <col id="grade" />
+                            <col id="notes" />
+                        </colgroup>
+                        {% for i in SGrades.keys() %}
+                        <tr>
+                            <th><div>{{ i }}</div></th>
+                            <th><div>{{ SGrades[i].grade }}</div></th>
+                            <th><div>{{ SGrades[i].notes }}</div></th>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
             {% endif %}
             <div class="feeback-sec">
                 <img src="/static/res/graphic3.png" class="triangle-img">
