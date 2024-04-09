@@ -4,7 +4,7 @@
         <link rel="stylesheet"
               href="{{ url_for('static',filename='styles/index.css') }}">
         <link rel="stylesheet"
-              href="{{ url_for('static',filename='styles/Calendar.css') }}">
+              href="{{ url_for('static',filename='styles/Feedback.css') }}">
         <meta charset="utf-8">
         <title>CSCB20 WEBSITE</title>
         <link href='https://fonts.googleapis.com/css?family=Roboto'
@@ -17,22 +17,75 @@
     <body>
         {% extends "template.html" %}
         {% block content %}
-            <h2>Question 1</h2>
-            {% for i in questions[1] %}
-                  <p>{{ i.feedback }}</p>
-            {% endfor %}
-            <h2>Question 2</h2>
-            {% for i in questions[2] %}
-                  <p>{{ i.feedback }}</p>
-            {% endfor %}
-            <h2>Question 3</h2>
-            {% for i in questions[3] %}
-                  <p>{{ i.feedback }}</p>
-            {% endfor %}
-            <h2>Question 4</h2>
-            {% for i in questions[4] %}
-                  <p>{{ i.feedback }}</p>
-            {% endfor %}
+        <div class="flex-title">
+            <div class="title-poly">
+                <h2>Feedback</h2>
+            </div>
+        </div>
+        <div class="lecture-subsec">
+            <img src="/static/res/graphic4.png" class="triangle-img">
+            <div class="subsec-title">
+                <h3>Question 1</h3>
+            </div>
+            <div class="subsec-content">
+                  <h3>What do you like about the instructor teaching?</h3>
+                  <ul>
+                  {% for i in questions[1] %}
+                  <li>
+                        <p>{{ i.feedback }}</p>
+                  </li>
+                  {% endfor %}
+                  </ul>
+            </div>
+        </div>
+        <div class="lecture-subsec">
+            <img src="/static/res/graphic1.png" class="triangle-img">
+            <div class="subsec-title" style="background-color: #f46b48ff">
+                <h3>Question 2</h3>
+            </div>
+            <div class="subsec-content">
+                  <h3>What do you recommend the instructor to do to improve their teaching?</h3>
+                  <ul>
+                  {% for i in questions[2] %}
+                  <li>
+                        <p>{{ i.feedback }}</p>
+                  </li>
+                  {% endfor %}
+                  </ul>
+            </div>
+        </div>
+        <div class="lecture-subsec">
+            <img src="/static/res/graphic2.png" class="triangle-img">
+            <div class="subsec-title" style="background-color: #5ab7bfff;">
+                <h3>Question 3</h3>
+            </div>
+            <div class="subsec-content">
+                  <h3>What do you like about the labs?</h3>
+                  <ul>
+                  {% for i in questions[3] %}
+                  <li>
+                        <p>{{ i.feedback }}</p>
+                  </li>
+                  {% endfor %}
+                  </ul>
+            </div>
+        </div>
+        <div class="lecture-subsec">
+            <img src="/static/res/graphic3.png" class="triangle-img" style="background-color: #ffb54aff;">
+            <div class="subsec-title">
+                <h3>Question 4</h3>
+            </div>
+            <div class="subsec-content">
+                  <h3>What do you recommend the lab instructors to do to improve their lab teaching?</h3>
+                  <ul>
+                  {% for i in questions[4] %}
+                  <li>
+                        <p>{{ i.feedback }}</p>
+                  </li>
+                  {% endfor %}
+                  <ul>
+            </div>
+        </div>
         {% endblock %}
     </body>
 </html>
