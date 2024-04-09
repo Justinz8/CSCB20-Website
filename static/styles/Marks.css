@@ -38,12 +38,15 @@
     width: 100%;
 }
 
-.feedback-form select{
+select{
     border: 2px transparent solid;
+    background-color: #e83f50;
+    border-radius: 15px;
+    color: white;
     padding: 5px;
 }
 
-.feedback-form select:hover{
+select:hover{
     border: 2px black solid;
 }
 
@@ -113,4 +116,75 @@
     margin-bottom: 5px;
     padding: 0px;
     font-weight: lighter;
+}
+
+#assessments {
+    width: 100%;
+    position: relative;
+    top: -10px;
+    table-layout: fixed;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    color: #666666;
+    font-weight: lighter;
+    padding-top: 10px;
+    box-shadow: 0px 3px rgb(205, 205, 205);
+    z-index: 20;
+}
+
+#assessments th {
+    padding: 5px 10px;
+}
+
+#assessments div {
+    background-color: #f3f3f3ff;
+    border-radius: 5px;
+    padding: 10px 0px;
+    font-weight: normal;
+}
+
+#course-work {
+    width: 20%;
+}
+
+#grade {
+    width: 20%;
+}
+
+#tb-headers {
+    width: 100%;
+    table-layout: fixed;
+    border-radius: 5px;
+    font-family: "Fragment Mono", monospace;
+    color: white;
+    border-spacing: 0px;
+    padding-bottom: 0px;
+    z-index: 10;
+    position: relative;
+    top: -5px;
+}
+
+#tb-headers th {
+    padding: 10px 0px;
+    font-weight: lighter;
+}
+
+.head-img{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.head-img img{
+    width: 100%;
+    object-fit: cover;
+    height: var(--triangle-height);
+    border-radius: 5px;
+}
+
+.subhead {
+    font-family: 'Roboto';
+    color: #666666;
 }

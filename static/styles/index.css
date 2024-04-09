@@ -21,6 +21,7 @@ body {
 
 .currentuser{
    font-family: "Roboto";
+   font-size: smaller;
 }
 
 .foot p {
@@ -227,11 +228,17 @@ font-family: "Roboto";
    }
  }
 
- @media only screen and (max-width: 1100px) {
+ @media only screen and (max-width: 1200px) {
   .ham-butt {
      top: 30px;
      right: 10px;
   }
+
+  .currentuser{
+    position: absolute;
+    right: 100px;
+  }
+
   .head-item {
      color: transparent;
      position: absolute;
