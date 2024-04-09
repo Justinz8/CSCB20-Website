@@ -1,3 +1,8 @@
+h2{
+    font-family: "Fragment Mono";
+    color: rgb(78, 78, 78);
+}
+
 .feeback-sec {
     font-family: 'Roboto';
     margin-top: 10px;
@@ -38,16 +43,18 @@
     width: 100%;
 }
 
-select{
+.feedback-form select, .markselect form select{
     border: 2px transparent solid;
-    background-color: #e83f50;
-    border-radius: 15px;
-    color: white;
+    border-radius: 5px;
     padding: 5px;
+    background-color: white;
+    font-family: "Roboto";
+
+    transition: background-color 0.28s ease-in-out;
 }
 
-select:hover{
-    border: 2px black solid;
+.feedback-form select:hover, .markselect select:hover{
+    background-color: rgb(225, 225, 225);
 }
 
 .feedback-form textarea {
@@ -88,6 +95,20 @@ select:hover{
     color: #FFFFFF;
     box-shadow: 0px 0px rgba(0, 0, 0, 0.14);
     transform: translateY(3px);
+}
+
+.feedback-form input{
+    border: 1px transparent rgb(78, 78, 78);
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
+    font-family: "Roboto";
+
+    transition: background-color ease-in-out .28s;
+}
+
+.feedback-form input:hover{
+    background-color: rgb(225, 225, 225);
 }
 
 .anon-feedback-title {
@@ -182,9 +203,4 @@ select:hover{
     object-fit: cover;
     height: var(--triangle-height);
     border-radius: 5px;
-}
-
-.subhead {
-    font-family: 'Roboto';
-    color: #666666;
 }
